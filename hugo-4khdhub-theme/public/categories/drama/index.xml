@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Drama on 4KHub Movie Database</title>
+    <link>https://example.org/categories/drama/</link>
+    <description>Recent content in Drama on 4KHub Movie Database</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Oct 2023 10:05:00 +0000</lastBuildDate>
+    <atom:link href="https://example.org/categories/drama/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Godfather</title>
+      <link>https://example.org/movies/movie2/</link>
+      <pubDate>Fri, 27 Oct 2023 10:05:00 +0000</pubDate>
+      <guid>https://example.org/movies/movie2/</guid>
+      <description>An epic tale of a crime family.</description>
+    </item>
+    <item>
+      <title>The Shawshank Redemption</title>
+      <link>https://example.org/movies/movie1/</link>
+      <pubDate>Fri, 27 Oct 2023 10:00:00 +0000</pubDate>
+      <guid>https://example.org/movies/movie1/</guid>
+      <description>This is a movie about hope and friendship.</description>
+    </item>
+  </channel>
+</rss>

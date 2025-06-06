@@ -1,0 +1,21 @@
+{{ define "main" }}
+<div class="container">
+    <h1>{{ .Title }}</h1>
+    <div class="movie-grid">
+        {{ range .Paginator.Pages }}
+            <div class="movie-card">
+                <a href="{{ .RelPermalink }}">
+                    {{ if .Params.image }}
+                        <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}">
+                    {{ else }}
+                        <img src="https://via.placeholder.com/300x450.png?text={{ .Title }}" alt="{{ .Title }}">
+                    {{ end }}
+                    <h3>{{ .Title }}</h3>
+                    <p>{{ .Params.year }}</p>
+                </a>
+            </div>
+        {{ end }}
+    </div>
+    {{ template "_internal/pagination.html" . }}
+</div>
+{{ end }}

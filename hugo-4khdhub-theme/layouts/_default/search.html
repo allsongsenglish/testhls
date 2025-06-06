@@ -1,0 +1,34 @@
+{{ define "main" }}
+<div class="container">
+    <h1>Search Results</h1>
+    {{ $query := .URL.Query.Get "q" | lower }}
+    <p>Showing results for: <strong>{{ $query }}</strong></p>
+
+    <div class="movie-grid">
+        {{ $searchResults := slice }}
+        {{ range where .Site.RegularPages "Type" "movies" }}
+            {{ if findRE ($query | printf "(?i)%s") .Title }}
+                {{ $searchResults = $searchResults | append . }}
+            {{ end }}
+        {{ end }}
+
+        {{ if gt (len $searchResults) 0 }}
+            {{ range $searchResults }}
+                <div class="movie-card">
+                    <a href="{{ .RelPermalink }}">
+                        {{ if .Params.image }}
+                            <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}">
+                        {{ else }}
+                            <img src="https://via.placeholder.com/300x450.png?text={{ .Title }}" alt="{{ .Title }}">
+                        {{ end }}
+                        <h3>{{ .Title }}</h3>
+                        <p>{{ .Params.year }}</p>
+                    </a>
+                </div>
+            {{ end }}
+        {{ else }}
+            <p>No movies found matching your query.</p>
+        {{ end }}
+    </div>
+</div>
+{{ end }}

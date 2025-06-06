@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="container">
+    <article class="movie-single">
+        <h1>{{ .Title }}</h1>
+        <p><strong>Year:</strong> {{ .Params.year }}</p>
+        <p><strong>Categories:</strong> {{ delimit .Params.categories ", " }}</p>
+        {{ if .Params.image }}
+            <img src="{{ .Params.image | relURL }}" alt="{{ .Title }}" class="movie-image-single">
+        {{ end }}
+        <div class="content">
+            {{ .Content }}
+        </div>
+    </article>
+</div>
+{{ end }}

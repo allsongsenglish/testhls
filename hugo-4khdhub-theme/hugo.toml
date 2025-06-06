@@ -1,0 +1,104 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = '4KHub Movie Database'
+theme = '' # Intentionally left blank as we are building the theme in place
+
+[params]
+  # Add any site-specific parameters here
+
+[menus]
+  # Define your site menus here (e.g., main navigation)
+
+# By default, Hugo uses the "content" directory.
+# The homepage will list content from the "movies" section.
+# To make "movies" the main section for the homepage:
+[permalinks]
+  # movies = "/:slug/" # Example: if you want movies at /movie-slug/
+  # homepage = "/" # This is usually default
+
+[[module.mounts]]
+source = "static"
+target = "static"
+
+[[module.mounts]]
+source = "layouts"
+target = "layouts"
+
+[[module.mounts]]
+source = "archetypes"
+target = "archetypes"
+
+[[module.mounts]]
+source = "content"
+target = "content"
+
+# Configure the homepage to list content from the 'movies' section
+# This requires that your list.html is set up to handle this.
+# And your content is in content/movies/
+# This is often the default behavior if 'movies' is the only top-level content directory.
+# For more explicit control, you might need to adjust defaultContentLanguageInSubdir or other settings
+# or create a specific layouts/index.html if list.html in _default is not sufficient.
+# For now, we rely on the default list.html to pick up the 'movies' content type.
+# Setting a theme is not necessary when developing a theme in the site's root like this.
+# However, if you were to package this as a standalone theme, you'd set theme = "your-theme-name"
+# in a separate exampleSite/hugo.toml.
+# The `theme` key is commented out or removed when the theme is directly in the project's /layouts, /static, etc.
+# For the purpose of this project, we assume the theme files are directly used.
+# No 'theme' key needed here.
+
+# Ensure pagination is enabled for the homepage (which uses list.html for movies)
+[outputs]
+  home = ["HTML", "RSS"] # Ensure HTML is an output for home
+
+paginate = 10 # Number of items per page for movie listings
+
+# The following is needed if your site is in a subdirectory on a server, e.g. example.com/hugo/
+# relativeURLs = true
+# uglyURLs = false # Set to true if your server doesn't support clean URLs
+# canonifyURLs = true # If you have a CNAME set up for your domain
+# disableKinds = ["taxonomy", "term"] # Uncomment to disable taxonomies if not used
+# enableRobotsTXT = true
+# buildDrafts = false # Set to true to include draft content in the build
+# buildFuture = false # Set to true to include content with future dates
+# buildExpired = false # Set to true to include content with past expiry dates
+# enableGitInfo = false # Set to true to include git commit info in .GitInfo
+# defaultContentLanguage = "en"
+# disableLanguages = [] # Add language codes to disable them, e.g., ["fr", "es"]
+# SectionPagesMenu = "main" # Automatically add section pages to the 'main' menu
+# PaginatePath = "page" # Default is "page", e.g., /movies/page/2/
+# summaryLength = 70 # Default summary length in words
+# rssLimit = 15 # Default number of items in RSS feeds
+# footnoteReturnLinkContents = "↩" # Content of the return link for footnotes
+# disqusShortname = "" # Your Disqus shortname
+# googleAnalytics = "" # Your Google Analytics tracking ID
+# privacy.googleAnalytics.anonymizeIP = true
+# privacy.googleAnalytics.respectDoNotTrack = true
+# privacy.googleAnalytics.useSessionStorage = false
+# enableEmoji = true
+# pluralizeListTitles = true # Pluralize list page titles, e.g., "Movies" instead of "Movie"
+# preserveTaxonomyNames = false # Set to true to preserve original taxonomy names (e.g., "My Tag" instead of "my-tag")
+# removePathAccents = true # Remove accents from paths
+# titleCaseStyle = "Go" # "AP", "Chicago", or "Go" (default)
+# markup.highlight.style = "monokai"
+# markup.goldmark.renderer.unsafe = false # Set to true to allow raw HTML in Markdown (SECURITY RISK)
+# markup.tableOfContents.startLevel = 2
+# markup.tableOfContents.endLevel = 3
+# markup.tableOfContents.ordered = false
+# imaging.resampleFilter = "box"
+# imaging.quality = 75
+# imaging.anchor = "smart"
+# timeout = "30s" # Timeout for Hugo build
+# log.logLevel = "info" # "debug", "info", "warn", "error"
+# log.logFile = "" # Path to log file
+# frontmatter.date = [":default", "date", "publishDate", "lastmod"]
+# frontmatter.lastmod = [":git", "lastmod", ":fileModTime", ":default"]
+# frontmatter.publishDate = ["publishDate", "date", ":default"]
+# frontmatter.expiryDate = ["expiryDate", ":default"]
+
+# Default content type is "page" if not specified in front matter or by directory.
+# We are using content/movies/ so the type is "movies".
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+  # series = "series" # If you add series later

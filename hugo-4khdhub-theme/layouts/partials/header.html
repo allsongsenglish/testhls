@@ -1,0 +1,7 @@
+<div class="container">
+    <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
+    <form action="{{ "search" | relURL }}" method="get" id="search-form">
+        <input type="search" name="q" id="search-query" placeholder="Search movies...">
+        <input type="submit" value="Search">
+    </form>
+</div>
